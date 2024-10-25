@@ -1,5 +1,7 @@
 import { PowerUpDTO } from '../dto/PowerUpDTO';
 import PlayerController from '../controllers/PlayerController'; 
+import Utils from '../utilities/Utils'; 
+
 
 export class PowerUp {
     constructor(scene, mazeArray) {
@@ -22,7 +24,7 @@ export class PowerUp {
             let randomPos;
     
             do {
-                randomPos = PlayerController.getRandomPosition(this.mazeArray); 
+                randomPos = Utils.getRandomPosition(this.mazeArray); 
             } while (usedPositions.has(`${randomPos.x},${randomPos.y}`) || this.mazeArray[randomPos.y][randomPos.x] === 1); // Kiểm tra nếu là tường
     
             usedPositions.add(`${randomPos.x},${randomPos.y}`);
